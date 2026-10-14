@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.guard_rep_coaching_update() FROM anon, authenticated, public;

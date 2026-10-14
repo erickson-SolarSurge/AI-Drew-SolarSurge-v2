@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Solar Surge AI-Augmented LMS — PRD</title>
+<!--
+  Editable source of the PRD. Edit this file, then re-export the PDF:
+  "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless --disable-gpu
+    --no-pdf-header-footer --print-to-pdf="PRD/Product Requirement Document (PRD).pdf" PRD/prd-source.html
+  Daily: add a dated entry at the top of section 5 (Change Log) and update module status lines.
+-->
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 10.5pt; line-height: 1.45; color: #111; background: #fff; }
+  h1 { font-size: 22pt; line-height: 1.15; margin: 0 0 14px; }
+  h2 { font-size: 15pt; margin: 22px 0 8px; page-break-after: avoid; }
+  h3 { font-size: 11.5pt; margin: 16px 0 6px; page-break-after: avoid; }
+  h4 { font-size: 10.5pt; margin: 12px 0 4px; page-break-after: avoid; }
+  p { margin: 6px 0; }
+  ul { margin: 4px 0 8px; padding-left: 22px; }
+  li { margin: 2px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 12px; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  th, td { border: 1px solid #ccc; padding: 6px 8px; vertical-align: top; text-align: left; }
+  th { background: #f3f3f3; }
+  .meta p { margin: 3px 0; }
+  .status { display: inline-block; font-size: 8.5pt; font-weight: bold; padding: 1px 6px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+  .live { background: #e3f4e6; color: #1d6b2d; }
+  .partial { background: #fff2d6; color: #8a5a00; }
+  .planned { background: #eceff3; color: #4a5361; }
+  .note { background: #f7f7f7; border-left: 3px solid #999; padding: 6px 10px; margin: 8px 0; }
+  .log-date { font-weight: bold; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<h1>Product Requirement Document (PRD):<br>Solar Surge AI-Augmented LMS</h1>
+
+<div class="meta">
+  <p><b>Author:</b> Emil Halili, Outbound Team Lead</p>
+  <p><b>Stakeholders:</b> Andrew (CEO), Leadership Team</p>
+  <p><b>Version:</b> 2.2 &nbsp;·&nbsp; <b>Last updated:</b> 14 October 2026</p>
+  <p><b>Build Velocity:</b> Fast-Track Execution (first built in a personal Lovable environment with an ElevenLabs V3 grant; since 7 October 2026 the platform runs independently on Solar Surge's own infrastructure; bypassed the standard 3–6 month dev cycle)</p>
+  <p><b>Target Audience:</b> Philippines (PHL) Outbound Sales Team servicing Queensland (QLD), Australia</p>
+</div>
+
+<h2>1. Executive Summary &amp; Business Objective</h2>
+<p>Traditional enterprise LMS builds require months of software development, outsourced voice talent, and heavy administrative overhead. To eliminate training latency and scale the PHL outbound desk immediately, this platform was architected and built using full-stack rapid application generation integrated directly with high-tier speech engines.</p>
+<p>The primary objective is to fast-track agent competency across three core operational barriers: Australian dialect and accent familiarity, spatial/technical credibility on QLD residential roofs, and high-pressure objection handling against unscripted prospects.</p>
+
+<h2>2. Technical Architecture &amp; Tech Stack</h2>
+<table>
+  <tr><th style="width:18%">Layer</th><th style="width:28%">Technology</th><th>Operational Function</th></tr>
+  <tr><td><b>Core UI &amp; Logic</b></td><td>Custom web app (React / TanStack Start)</td><td>Custom-built web interfaces, reactive state management, and real-time interactive desks. Originally generated with Lovable; now maintained in-house with no Lovable dependency.</td></tr>
+  <tr><td><b>Database, Login &amp; Storage</b></td><td>Supabase (Solar Surge-owned project)</td><td>User accounts and sign-in, training progress, QA recordings, coaching forms and documents. All files are stored privately and shared only through time-limited links.</td></tr>
+  <tr><td><b>AI Engine</b></td><td>Google Gemini (primary) with Anthropic Claude (backup)</td><td>Powers the AI customers, Live Script Assist, call scoring and QA coaching. If Gemini is busy or unavailable, requests switch to Claude automatically. The Live Script Assist runs on Claude Sonnet first (with Gemini as backup) because it must answer within seconds during a call.</td></tr>
+  <tr><td><b>Primary Voice AI</b></td><td>ElevenLabs V3 (AU Dialect Model)</td><td>Native Australian speech synthesis and speech-to-text powering localized training audio, agentic roleplays and QA call transcription.</td></tr>
+  <tr><td><b>Voice Failover</b></td><td>Built-in browser Australian voice</td><td>Automatic fallback if ElevenLabs is unavailable, so floor training never stops. (Replaces the earlier Vapi plan; Vapi will not be implemented.)</td></tr>
+  <tr><td><b>Data &amp; Media</b></td><td>Web Audio API &amp; GIS Overlays</td><td>Live speech-to-text transcription, audio wave visualization, and interactive roof mapping.</td></tr>
+</table>
+
+<h2>3. Functional Module Specifications</h2>
+<p><span class="status live">LIVE</span> working in the app &nbsp; <span class="status partial">PARTIAL</span> some parts still to build &nbsp; <span class="status planned">PLANNED</span> not built yet</p>
+
+<h3>Module 1: Mission Brief &amp; Audio Foundation <span class="status partial">PARTIAL</span></h3>
+<ul>
+  <li><b>New hire course (live 13 Oct 2026)</b>: the Mission Brief is now a nine-mission course built from the New Hire knowledge base: Welcome, the five products (Energy Independence, Energy Starter, Energy Upgrade, Commercial Solar, EV Solutions) and the 2026 government programs for QLD, SEQ and WA. Each mission has short lessons, the call scripts as a conversation, objection drills, flip cards and a quick check. A rep's progress is saved to their account, and passing all nine completes Module 1.</li>
+  <li><b>Feature</b>: Audio-first learning hub featuring <i>Solar Surge LM Notebook Podcast Audio</i>.</li>
+  <li><b>Functionality</b>: Delivers native Australian synthesis covering QLD tariff updates, localized energy terminology (e.g., Energex), and speech cadence.</li>
+  <li><b>Business Impact</b>: Accelerates listening comprehension and eliminates dialect friction before reps make live calls.</li>
+  <li><b>Status</b>: Mission brief content is live. The podcast audio player is still to be built.</li>
+</ul>
+
+<h3>Module 2: Cold Calling Masterclass · Appointment Setter Scripts <span class="status live">LIVE</span></h3>
+<ul>
+  <li><b>Feature</b>: The official <i>Solar Surge Setter Playbook</i> (8 Oct 2026), built into the LMS word for word. It is the single source for the script, qualifying rules and rebuttals across every module, the practice calls, the AI coaches and QA scoring.</li>
+  <li><b>Call flow (Appointment Setter Scripts, 14 Oct 2026)</b>: followed word for word, in order: the <b>opener</b> for the lead source (call centre, online enquiry or door-to-door) → <b>Q1 the highest bill</b> in the last 12 months → <b>the free property assessment</b> (45 minutes to an hour with everyone who owns and lives in the home, then a quote) → the <b>qualifying block</b> (Q2–Q6) → <b>one specific time</b> for both of them → <b>lock it in</b> (both there for the full hour, the summer bill handy). Confirmers follow the Confirm Script (14 Oct): opening, re-jog, details, the same six questions, then lock it in, or the holding line on any flagged answer.</li>
+  <li><b>Six qualifiers</b>: the highest bill (<b>$450+ per quarter or $150+ per month</b>), both decision-makers there for the full hour, year of birth (65–70 flagged for manager review, over 70 not booked), staying 3+ years, employment (recorded), and the roof and renovations (minor repairs flagged, major work means a call back). Each answer is marked Book it, Flag to manager or Don't book, automatically.</li>
+  <li><b>Rebuttals</b>: 13 objections, each with a one-liner and a full script, handled Acknowledge → Reframe → Ask → Advance (twice at most). Reps never quote prices or ballparks, never book a one-legger, and only use urgency that is true.</li>
+  <li><b>Rebuttals in reach</b>: a floating “Rebuttals” button and the R key open the floor quick-reference card on every page; type what the homeowner said and the script appears. During practice calls the matching rebuttal pins itself automatically.</li>
+  <li><b>Business Impact</b>: One method for every rep, coach and AI, so appointments are fully qualified, remembered and kept.</li>
+</ul>
+
+<h4>2a. Sales Dojo: scripts and rebuttals at a glance (added 9 Oct) <span class="status live">LIVE</span></h4>
+<ul>
+  <li><b>Purpose</b>: One dedicated page, first in every rep's menu, for finding and reading any script mid-call. Large type throughout, with a text-size control so every rep can read comfortably at a glance.</li>
+  <li><b>Search</b>: Reps type what the homeowner said (“talk to my wife”, “how much”, “email me”) and the right rebuttal appears with its one-liner and full script.</li>
+  <li><b>Step-by-step call guide</b>: Eight steps from the Setter Playbook, one at a time: open with rapport (by lead source) → qualify as a two-way conversation (all six qualifiers, each showing what the homeowner usually says back and the follow-up) → reflect → position the assessment → offer two times → lock it in → <b>set expectations</b> → log the booking.</li>
+  <li><b>Setting expectations</b>: The homeowner leaves the call knowing what happens next: a text with the consultant's name, a confirmation email to review before the visit, and a list of questions to prepare so the consultant covers them during the visit. This supports Solar Surge's goal of being the homeowner's most trusted educator on their options, including the government incentives available to them.</li>
+  <li><b>Script tailored to each lead (added 9 Oct)</b>: Reps paste the lead details from any of our vendors, in whatever format the vendor uses (e.g. “Has Solar, 36 Panels, 8–9 Years Old, No Battery, Home Owner, Power Bills $900/quarter, Call Back Morning”). In a few seconds the AI reads it and rewrites the whole call script for that homeowner: the opener and pre-call text, the qualifying questions (anything the vendor already captured becomes “I've got here that…” to verify; anything missing stays a question), the reflect line and the close. It also shows a lead summary, the six qualifiers as vendor-confirmed, ruled out or still to ask, and practical watch-outs (e.g. a requested call-back time, a bill below the minimum with the polite exit line, older panels and feed-in tariffs). The bill check always applies the official $450 a quarter / $150 a month minimum, and no prices are ever added to the script. Lead details are not saved; they stay in the rep's browser only.</li>
+  <li><b>“Where are you located?” answered locally (added 9 Oct)</b>: Reps paste the customer's address from our records. The app finds it (using the Queensland Government address database) and works out which part of our service area the customer is in and how far they are from our Coomera head office. It then gives a ready-made answer to this common brush-off: acknowledge that they want a proper local business, explain that we are Queensland-based with consultants across South East Queensland including their area (mentioning the distance only when it's close), ask whether having someone local for the warranty matters to them, then get straight back to the call. Customers outside our usual area (e.g. Toowoomba, Lismore, northern NSW, regional QLD) are flagged so the rep checks with the team before booking. Reps are reminded to be honest if asked where they personally are. The same answer appears when a rep searches “where are you located”. Nothing is saved.</li>
+  <li><b>Call notes in one standard format (added 9 Oct)</b>: Accurate post-call notes are one of our biggest gaps, and we need them consistent in Zoho. Next to the script, setters now have a <b>Call notes</b> panel (the Sales Dojo shows three columns on a wide screen: the customer’s lead and address, the script, and the notes; as the rep moves through the script, the matching note boxes light up, and each qualifying question in the script has an “Asked” tick linked to the notes): an outcome (booked, call back, disqualified, not interested, no answer), the appointment time and consultant, and every qualifying question written out: the rep ticks it once asked, and a note box opens for what the customer said, plus existing solar, objections, what the customer wants the consultant to look at, a personal detail, and whether the pre-call text was sent. Reps can type fast with shorthand and typos; one click and the AI tidies the wording (without adding anything the rep didn't write), turns dates like “tmrw 6pm” into the real day and date, states whether the customer is <b>Qualified</b> or <b>Not qualified</b> with the reasons (all six qualifiers must be asked and pass, as the playbook requires; a booking that isn’t qualified is flagged for the team lead), then the app lays it out in one fixed standard format: header, outcome, the six qualifiers (any not asked are clearly marked “NOT ASKED”, and the bill is checked against the $450/$150 minimum), then the details. The rep copies it into Aircall in one click, so every note that reaches Zoho reads the same way. The panel also reminds the rep which qualifiers are still to ask before they hang up. Nothing is saved in the LMS.</li>
+  <li><b>Yes/No answers and a bill calculator (added 9 Oct)</b>: Each qualifying question in the script and the notes now has <b>Yes / No</b> buttons (worded so Yes always means the customer meets the qualifier) and a small details box. The bill takes the amount and Monthly or Quarterly, and instantly shows both figures (e.g. 50 a month = 50 a quarter) with a clear “meets / below the minimum” check, so reps never need a calculator. Working status is recorded as Full-time, Part-time or Retired; for retired homeowners the pension type and over/under 65 must be recorded, for audit purposes and because different programs apply. Qualified / Not qualified is now decided exactly from these answers.</li>
+  <li><b>Customer name, bill and appointment time (added 12 Oct)</b>: Reps paste the customer's name (and partner's) from Zoho into a name box, and it appears throughout the script and in the notes. When the lead notes mention a bill, the AI fills in the bill box automatically (monthly or quarterly as the lead says; if the lead doesn't say which, the rep picks), so the rep can read it back and confirm it with the customer; the rep can always change it, and the notes record whether the bill came from the lead notes or Zoho. Booked and call-back times are picked from a calendar and a time list that are always in Queensland time, whatever the rep's computer is set to, so reps in Manila can't book the wrong hour; each time also shows the Manila equivalent for the rep's reference.</li>
+  <li><b>Setter or Confirmer script (added 13 Oct)</b>: Before starting, each rep picks the calls they're making from an <b>“I'm calling as”</b> dropdown: <b>Setter</b> (booking new appointments, the Setter Call Flow V3) or <b>Confirmer</b> (confirming booked appointments, the official Confirm Script, word for word). AI Drew then shows only that role's script, so every rep follows the right one. The Confirmer script runs in six steps: open, confirm the appointment, re-jog their memory, both present with a bill ready, confirm the details (bill, working or retired, pension, over or under 65, moving soon, roof condition), and lock it in. The confirmer's call note uses the same standard layout, showing the appointment on file, the outcome (<b>Confirmed, Rescheduled, Cancelled, No answer or Call back</b>) and the details re-confirmed; it warns if a re-confirmed detail fails (for example the customer is over 70) before the consultant goes out. Rescheduling uses the same Queensland-time picker and field rep calendar; cancelling needs a reason from the Zoho list. In the Admin Control Centre (People), admins can set each person's usual script, so AI Drew opens on it; reps can still switch for the day, for example a setter covering confirm calls when someone is on leave, and go back to their usual script the next day.</li>
+  <li><b>Drafts awaiting approval</b>: The confirmation email, the homeowner prep questions and the “educator” lines are new and not yet in the official playbook. They are clearly marked “Draft” in the app until approved (see section 6). They name incentive programs but never quote dollar figures.</li>
+</ul>
+
+<h4>2b. Rep Feedback on Scripts (added 9 Oct) <span class="status live">LIVE</span></h4>
+<ul>
+  <li>Whenever a rep opens a rebuttal (in the Sales Dojo, the Rebuttals button, the Calling module or a practice call), a small prompt asks “Did this help?” with Yes, No or “Suggest a change”. It asks once per script per day so it never nags.</li>
+  <li>The Admin Control Centre has a new <b>Rep feedback</b> page: how helpful each rebuttal is rated (weakest first), every suggestion with the rep's name and date, a status for each (new, reviewed, actioned) with a note, and a spreadsheet export.</li>
+  <li><b>Business Impact</b>: The people using the scripts on the floor shape the next version of the playbook and the LMS.</li>
+</ul>
+
+<h3>Module 3: QLD Satellite Roof Inspector Tool <span class="status partial">PARTIAL</span></h3>
+<ul>
+  <li><b>Feature</b>: Interactive aerial roof reconnaissance sandbox covering core QLD zones (Milton, Coomera, Chermside, Robina, Toowoomba, Chinchilla).</li>
+  <li><b>Functionality</b>: Real-time HUD displaying panel sandbox, system size (kW), estimated daily generation (kWh/day), Zone 3 STC rebate calculations, and bill offset percentages.</li>
+  <li><b>Business Impact</b>: Replaces vague pitch points with concrete data, establishing spatial and financial credibility live on the call.</li>
+  <li><b>Address search (updated 8 Oct)</b>: Uses the Queensland Government's official address database to pin the exact property, with backup sources for NSW border areas. Reads addresses as reps receive them, including units (e.g. “Unit 4 52 Whytecliffe Parade Woody Point QLD 4019 Australia” or “4/52 Whytecliffe Pde”). Suggests matching addresses while the rep types and shows how accurate the pin is (exact property, street only, or suburb only). When a unit is given, the AI treats the site as shared-roof / body corporate when assessing eligibility.</li>
+  <li><b>Consultative call guide (added 8 Oct)</b>: For each property the AI gives the rep three steps: <i>Ask these first</i> (probing questions about ownership, bill, daytime usage, battery plans, body corporate), <i>Say this on the call</i> (thought-leader insights that teach the homeowner how solar works for their home, such as why using solar power during the day beats exporting it, how evening peak tariffs drive the bill, and when a battery is and isn't worth it, grounded in Solar Surge's company knowledge with no invented figures), and <i>Suggested next steps</i> (practical steps that leave the homeowner better informed even if no appointment is booked).</li>
+  <li><b>Status</b>: Satellite map, accurate address search, suburb shortcuts and AI roof insights are live. The full metrics HUD (kWh/day, STC rebate, bill offset) is still to be built.</li>
+</ul>
+
+<h3>Module 4: Live Roleplay Cockpit &amp; Call Vault <span class="status live">LIVE</span></h3>
+<ul>
+  <li><b>Feature</b>: Three-part tactical simulation workspace and benchmark listening archive.</li>
+  <li><b>Components</b>:
+    <ul>
+      <li><i>Agentic AI Customers</i>: Eight unscripted personas (including <i>Bruce – Skeptical Tradie</i>, <i>Sharon – Warm</i>, <i>Kylie – Hostile</i>, <i>Trent – Brush-off</i>), rebuilt on 8 Oct around the Setter Playbook. Each has a lead source and vendor notes the rep verifies, raises specific playbook objections, and has a right result: two are deliberate disqualify scenarios (bill below the minimum; selling within a year). The scenario brief is hidden behind a spoiler so practice feels like a real call.</li>
+      <li><i>Live Script Assist</i>: Real-time transcript engine with inline audio guides. <b>Updated 7 Oct:</b> as the two-way conversation is transcribed, an AI coach reads the latest customer line and shows a <b>“Say this next”</b> card with the rep's suggested next line, the customer signal behind it, and a watch-out. Reps can play the line aloud or copy it, and can switch AI assist on or off.</li>
+      <li><i>Flyby Coaching</i> (added 8 Oct): the moment a practice call ends, an AI coach scores it out of 100 using Solar Surge's AI QA Coach Framework (the same standard QA uses on live calls) and drops by with a short, human debrief: one thing that worked, one thing to sharpen, four lines to try next time (following the playbook's objection method), and a challenge for the next run. Reps can press “Hear your coach” to have it read aloud in the Australian voice. Built to make being coached a daily habit; nothing is saved, so practice stays a safe space.</li>
+      <li><i>Call Listening Vault</i>: 10 fully analyzed benchmark calls complete with speaker diarization.</li>
+    </ul>
+  </li>
+  <li><b>Live Monitoring</b>: Managers can silently listen in to practice calls in progress (nothing is recorded).</li>
+  <li><b>Business Impact</b>: Replaces peer-to-peer roleplay with realistic, high-pressure AI customer simulations, significantly lowering live phone anxiety.</li>
+</ul>
+
+<h3>Module 5: 3-Day Nesting Roadmap &amp; Certification Exam <span class="status live">LIVE</span></h3>
+<ul>
+  <li><b>Feature</b>: Sequential progression matrix and mandatory gating exam.</li>
+  <li><b>Workflow</b>:
+    <ul>
+      <li><i>Day 1 (Shadowing)</i>: 40+ live dials, objection logging, verbal value-prop check.</li>
+      <li><i>Day 2 (Whisper Dials)</i>: 60 coach-whispered dials, 2 live bookings permitted.</li>
+      <li><i>Day 3 (Solo Flight)</i>: 150 solo dials, 1 clean booking, self-scored audit.</li>
+      <li><i>Certification</i>: A <b>4-question</b> exam on the Setter Playbook (the $450 a quarter / $150 a month bill minimum, the objection method, handling “I need to talk to my partner”, and never quoting prices) prior to floor release. A certificate is issued on passing.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Module 6: QA Tool &amp; Admin Control Centre <span class="status live">LIVE</span></h3>
+<ul>
+  <li><b>Feature</b>: Automated call evaluation engine and complete operational administration panel.</li>
+  <li><b>Functionality</b>: Drag-and-drop audio transcription, AI scorecard generation, coaching logs, user account management, module content editing, and audit logging.</li>
+  <li><b>Business Impact</b>: Gives management full operational control to adjust scripts, parameters, and AI personalities on the fly with zero engineering tickets required.</li>
+</ul>
+
+<h4>6a. Built-in AI QA Coach Framework (added 7 Oct)</h4>
+<ul>
+  <li>Every call is scored against Solar Surge's <i>AI QA Coach Framework (Solar Appointment Setting Evaluation Model)</i>, built into the app: four areas worth 25 points each, adding up to a QA score out of 100.</li>
+  <li>The AI also uses Solar Surge's company knowledge (products, service areas, qualification rules).</li>
+  <li><b>Coaching reads like a human coach wrote it.</b> The framework guides what the AI looks for, but the coaching form never shows framework labels or jargon. It reads as personal notes from a coach to a rep: what went well, pivot points with suggested lines, and clear next steps.</li>
+  <li>Every coaching form ends with a practice prompt sending the rep to a 10-minute session with Sharon, the AI customer.</li>
+  <li>“Rewrite coaching notes with AI” lets QA regenerate a draft before publishing.</li>
+</ul>
+
+<h4>6a-i. Setters and Confirmers, with a Qualification Check (added 9 Oct)</h4>
+<ul>
+  <li><b>Two rep types</b>: Before scoring a call, the coach chooses whether the rep is an <b>Appointment Setter</b> or a <b>Confirmer</b>. Setters are judged against the official <i>Solar Surge Setter Playbook</i>; Confirmers against the official <i>Solar Surge Confirm Script</i> (CC, July 2026), both built into the app word for word. The QA score stays out of 100.</li>
+  <li><b>Every qualifying question, every call</b>: The AI checks the transcript against the full list of questions for that rep type and marks each one as passed, failed, missed or not applicable, quoting the call.
+    <ul>
+      <li><i>Setters (6)</i>: homeowner with every owner present; bill $450+ a quarter or $150+ a month; shading; working status; staying put 2–3 years; roof and insurance. Plus pension type and age if retired.</li>
+      <li><i>Confirmers</i>: appointment time confirmed; both owners there for the full hour; bill ready; full name; partner's name; address; average bill; working or retired; not moving in 2–3 years; roof condition; insurance work or roof damage; pension type and age if retired; locked in with expectations set.</li>
+    </ul>
+    Any question the rep missed is listed automatically on the coaching form as a script deviation.
+  </li>
+  <li><b>Qualified or not</b>: Each coaching form shows whether the customer is <b>Qualified</b>, <b>Not qualified</b> (an answer rules them out, with the deciding quote) or <b>Not verified</b> (a qualifying question was missed, so it can't be confirmed). The verdict follows one fixed rule, so it is consistent from call to call. It appears on the coaching form, the records list, the rep's own records and the PDF.</li>
+  <li><b>Business Impact</b>: Protects consultant time from unqualified visits, and makes skipping a qualifying question visible on every coached call.</li>
+</ul>
+
+<h4>6b. QA Document Uploads (added 7 Oct)</h4>
+<ul>
+  <li>QA can upload reference documents (PDF, Word or text) that the AI reads and uses when writing the coaching form.</li>
+  <li><b>Campaign library</b>: documents shared across every call in a campaign (scripts, product updates, rebuttal guides).</li>
+  <li><b>Per call / per form</b>: documents attached to one specific call or coaching form.</li>
+  <li>QA can review and edit the text the AI will read before saving. Scanned or image-only PDFs can't be read.</li>
+</ul>
+
+<h4>6c. Agents Without a Login (added 7 Oct)</h4>
+<ul>
+  <li>QA can add an agent by name directly in the QA &amp; Coaching tool, without an email address or an account in the Admin Control Centre.</li>
+  <li>These agents are marked “(no login)”. Their calls are scored and coached the same way; their coaching forms are shared as a PDF, since they can't sign in to acknowledge them.</li>
+  <li>Duplicate names are detected, and an agent with existing calls or forms can't be deleted by accident.</li>
+</ul>
+
+<h2>4. Key Performance Indicators (KPIs)</h2>
+<ul>
+  <li><b>Onboarding Acceleration</b>: Reduce ramp-to-floor time from a standard 14 days down to 3 days.</li>
+  <li><b>Lead Pipeline Quality</b>: Eliminate low-value appointments by embedding the Setter Playbook's six qualifiers (including the $450 a quarter / $150 a month bill minimum) into rep workflows.</li>
+  <li><b>Dial Efficiency</b>: Achieve a target benchmark booking rate of 0.016 per dial on live QLD data.</li>
+  <li><b>QA Coverage</b>: Transition from ~5% manual call sampling to 100% automated AI call evaluation.</li>
+</ul>
+
+<h2>5. Change Log</h2>
+<p>Updated daily. Newest first.</p>
+
+<p class="log-date">14 October 2026 — v2.2</p>
+<ul>
+  <li><b>Ready for deployment.</b> The project is packaged for the developer as version 2.2.0, with a deployment guide (how to build, put it online and set it up), a short technical change log and an updated read-me. Code formatting was tidied across the project, and the full checks and production build pass. Passwords and keys are not included in the package and will be handed over separately. Call recordings with customer details are also left out.</li>
+  <li><b>Help &amp; guides brought up to date.</b> The walkthrough now covers every part of the platform in 24 sections, each with a fresh screenshot and plain steps. New sections cover AI Drew for setters and confirmers, the six qualifying questions, leads and call backs, the rebuttal finder, the new hire course, and the admin Leads, Field reps, Module access and Rep feedback pages. Screenshots use a demo customer, and real customer and staff details are blurred. The downloadable how-to guide and the PRD in the Library were rebuilt to match. Also fixed while checking: old page descriptions (Mission Brief, Cold Calling Masterclass), the role picker still naming the old V3 script, and roof inspector quick-pick suburbs outside our territories (Toowoomba, Chinchilla), now replaced with SEQ suburbs and Joondalup (WA).</li>
+  <li><b>Reps now ask the qualifying questions straight.</b> In AI Drew, the Cold Calling Masterclass and the Confirm script, each of the six questions is now just the question. The reason behind it sits underneath in small print (“If they ask why: …”), for reps to use only when the customer asks. The practice-call coaches and call quality checks follow the same rule, and a rep is no longer marked down for not explaining every question. This is a deliberate change from the written scripts, which give the reason with every question.</li>
+  <li><b>New official Setter and Confirm scripts (14 Oct) are now the scripts in the app, word for word.</b> AI Drew, the Cold Calling Masterclass, the practice calls, the AI coaches and call quality checks all follow the updated <i>Appointment Setter Scripts</i> and <i>Confirm Script</i>, replacing Framework V3 and the July Confirm Script.
+    <ul>
+      <li><b>Six qualifiers, in order</b>: the highest bill in the last 12 months (summer); both decision-makers there for the full 45–60 minutes; year of birth; moving plans; employment; roof, repairs and renovations. The old system origin, panel location, energy provider and pension questions are gone, as the new scripts don't ask them.</li>
+      <li><b>Book it / Flag to manager / Don't book</b>: every answer is judged by the scripts' quick-reference table, automatically. Aged 65 to 70 or minor roof repairs: book, and the manager is flagged (“AGE REVIEW”). Bill under the minimum, over 70 or moving within 3 years: don't book, use the polite exit, and never tell the customer the reason. Only one decision-maker: rebook. Major work underway: call back when it's done.</li>
+      <li><b>Reps can't skip the rules</b>: AI Drew won't let a setter book until all six qualifiers pass (flags allowed), and won't let a confirmer confirm on any flagged or don't-book answer. Confirmers read the <b>holding line</b> (“I'll just double-check a couple of things with the team and give you a quick call back today”) and pick the new outcome <b>Holding: flagged to manager</b>, which becomes a call back today.</li>
+      <li><b>Managers are told straight away</b>: a booking with a flag, or a confirmer's holding call, puts a notification in every manager's bell, and the lead shows a <b>Flagged</b> badge in the Leads tab.</li>
+      <li>The setter script's close (“We are seeing someone over the street at 2pm…”) is shown word for word, with a note to say it only when it's true; the same goes for “our experts are in the area”.</li>
+      <li>The rebuttal library stays available (search, Rebuttals button, objection log), with the age and moving rebuttals corrected to the new rules.</li>
+    </ul>
+  </li>
+  <li><b>Age: reps now ask the year of birth.</b> Instead of “are you over or under 65?” and “roughly what age?”, the script asks <b>“what year were you born?”</b>, which customers answer more easily and which is exact. AI Drew shows the customer's age the moment the year is typed in, and flags it red if they're over 70. A year alone can't tell 70 from 71, so when someone turns 71 this year AI Drew asks the rep to check “have you had your birthday yet this year?” before deciding. If a customer won't give their year, the old age ranges are still there as a backup. The call note now records it as, for example, “Born 1958, 67”. The AI coaches and call quality checks use the new question too.</li>
+  <li><b>Fix: Roof Inspector was too slow.</b> The roof readout was taking about a minute and a half per address, so it looked broken. It now uses the faster AI and takes around 15–20 seconds.</li>
+</ul>
+
+<p class="log-date">13 October 2026 — v2.1</p>
+<ul>
+  <li><b>Call-back reminders in the notification bell.</b> When a rep wraps up a call as Call back or Future contact, the bell confirms it (“Call back set”, with the customer, Queensland time and phone). The bell has a new <b>Call backs</b> tab listing every call-back lead, soonest first and grouped into due now or late, later today, and coming up, each with Call and Open buttons; <b>Show all call backs</b> opens the full list in AI Drew. Five minutes before a call back is due, the rep gets a pop-up with an Open button, a “Call back due” item in the bell, and (if they switch it on) a desktop alert. Clicking any of them opens the lead in AI Drew, ready to call. Reminders work while the app is open in the rep's browser.</li>
+  <li><b>Manual leads are saved automatically.</b> When a rep types in a lead themselves in AI Drew, it's saved as one of their leads as soon as the customer's name and a valid phone number are in, and keeps saving as they add details. A new <b>My leads</b> list shows every lead the rep has (assigned or typed in) with its status (to call, call back, done and the outcome), the last call note, and Call and Open buttons, so they can always go back to a lead and call again. Wrapping up a manual lead saves its outcome and note just like an assigned lead; “Not now” keeps it in My leads to call later. If the number is already in their leads, AI Drew uses that lead instead of making a duplicate. Admins see manual leads in the Leads tab under “Manual leads · rep name”.</li>
+  <li><b>Fix: long territory names.</b> Leads with a long territory (from the leads sheet or the door-to-door territory box) made AI Drew stop with an error when it tailored the script. Any length now works.</li>
+  <li><b>Lead queue: each lead is dialled once.</b> When a rep has dialled all their assigned leads, the queue no longer starts again: a “No answer” now closes the lead instead of sending it to the back of the queue. Only call backs the customer asked for come back, at the time they picked. Once the list is finished, AI Drew tells the rep “All your assigned leads are dialled” and stays ready for manual leads, so reps keep using it as normal. Admins can still put any lead back in a rep's queue from the Leads tab for another try.</li>
+  <li><b>Mission Brief rebuilt as a new hire course.</b> The nine New Hire knowledge base modules are now inside the Mission Brief as an interactive course:
+    <ul>
+      <li>a progress “sun” showing how many of the nine missions are passed, a Continue button, and three tracks: Start here, Products, and Government programs 2026;</li>
+      <li>in each mission, five steps: <b>Learn</b> (key facts, tables and who it's for), <b>Scripts</b> (the call shown as a chat, with “Hear it”, plus a “Your turn” mode that hides the rep's lines until they've said them out loud), <b>Objections</b> (the customer's pushback, with the answer revealed one step at a time and a link to the approved AI Drew rebuttal), <b>Flip cards</b> (from each module's knowledge check) and a <b>Quick check</b> of four questions (pass with three);</li>
+      <li>badges (Product Pro, Rebate Ranger, Mission Ready), and a pass on all nine marks Module 1 complete on the dashboard.</li>
+    </ul>
+  The trainer keeps the course up to date by editing the knowledge base files; the government program modules should be reviewed every January and July. Two safeguards: script lines in the knowledge base that quote a price, saving, rebate or payback figure are tagged <b>“Not for calls: no figures”</b>, because the Setter Playbook bans figures on calls (reps still learn the facts). Where the knowledge base disagrees with how we operate, a “Solar Surge update” note sets it straight: our territories are South East Queensland and Western Australia (the files list Toowoomba, Dalby and NSW), head office is Coomera (the files say Burleigh Heads), and every call also confirms the bill and the customer's age. The quiz questions are marked Draft until approved.</li>
+  <li><b>Battery talking points for customers who already have solar.</b> AI Drew now spots leads that have solar but no battery (e.g. “Got Solar, 5 Years Old, Doesn't Have Battery”) and shows a <b>Battery talking points</b> pop-up the rep can open during the call. It has:
+    <ul>
+      <li>how a battery works, in plain words;</li>
+      <li>how it saves money, with no figures;</li>
+      <li>the government help available in 2026;</li>
+      <li>ready-to-read answers to the questions customers ask: how it works, how much it saves, rebates, payback, old panels, VPPs, blackouts, and whether to wait.</li>
+    </ul>
+  The AI adds two or three points for that customer (e.g. their system's age or a past battery quote), and the app blocks any price, percentage, saving or rebate figure. Research for this found that <b>Queensland has no state battery rebate in 2026</b>: the Battery Booster closed in 2024. The program available to Queensland homeowners is the federal Cheaper Home Batteries Program (an upfront discount, including for a battery added to existing solar; it steps down every six months). Reps now have an honest line when customers ask about a Queensland rebate. WA leads also see the WA Residential Battery Scheme. All AIs (coach, practice customer, QA, roof) now share these facts. The talking points are marked Draft until approved.</li>
+  <li><b>Western Australia is now a supported territory everywhere.</b> Until now the address check and the Roof Inspector only knew South East Queensland, so Perth addresses were wrongly flagged as outside our service area. Now any WA address counts as in area (shown as Perth, or Western Australia outside the Perth area). Anything outside South East Queensland and WA (e.g. Toowoomba, Townsville, Northern NSW, Adelaide) is flagged on the Roof Inspector map, on the address card, on the territory box and on the rep's lead queue bar: “outside our territories (South East Queensland and Western Australia), check with the team before you lock a time.” The Roof Inspector's readout for WA homes no longer mentions Queensland programs, and says the consultant will confirm which WA programs apply. The “Where are you located?” answer has a WA version (draft, awaiting approval).</li>
+  <li><b>Territory worked out automatically, and the roof ready before the rep asks.</b> When a lead has no territory, the app works it out from the address (e.g. “Duncraig WA 6023” → WA, “Newport QLD 4020” → SEQ), or from a landline's area code (07 3 / 07 5 → SEQ, 08 → WA). SEQ means South East Queensland only (Brisbane, Logan, Redlands, Gold Coast, Scenic Rim, Ipswich, Lockyer Valley, Moreton Bay, Sunshine Coast), the same area the address check uses; Toowoomba, Gympie, Townsville and the rest of Queensland show as outside our territories. Mobile numbers don't say where someone lives, so the address comes first. Reps see the territory in large text on the customer card and in the lead queue bar, with how it was worked out; it's flagged if the lead is outside SEQ and WA (e.g. NSW) or if the territory on the sheet doesn't match the address. When admins load leads, blank territories are filled in automatically (marked “auto”) and mismatches are flagged in the preview. As soon as the customer's address is found, the Roof Inspector searches that roof in the background, so when the rep opens the map it's already loaded.</li>
+  <li><b>Lead queue: load leads and assign them to reps.</b> A new <b>Leads</b> tab in the Admin Control Centre lets admins upload the leads spreadsheet (Customer Name, Lead Details, Lead Source, Address, Phone Number, Territory), paste rows straight from it, or paste leads one by one. Before anything is saved, a preview checks every lead: phone numbers are tidied into the standard Australian format (and flagged if they aren't real Australian numbers), duplicates are spotted, and lead sources we don't recognise (e.g. “GB”) can be matched to CC, Lead AX or D2D. Admins tick the reps and the leads are shared out evenly. Reps just log in, open AI Drew and press <b>Start next lead</b>: the customer's name, phone (with Copy and Call buttons), lead details, source, territory and address fill in, and the script is tailored straight away. When the call is done, <b>Wrap up &amp; next lead</b> saves the outcome and the full call note on the lead and loads the next one. Call backs come back to the same rep at the time they picked (Queensland time); no-answers are closed after one try (see the later update). Admins see every lead's status, outcome and saved notes, a per-rep summary for the day, and can reassign, return to queue or archive leads. Live since 13 Oct (database updated).</li>
+  <li><b>Objection log in the call script.</b> Where reps record objections (setters: value proposition and objections steps; confirmers: the last step), they now pick the objection from a dropdown of every rebuttal on our list, or choose “Other” and type the objection or hesitation in the customer's words. For each one they mark whether it was overcome, still hesitant or not overcome, and type how they handled it. As soon as a rep picks an objection, its full rebuttal script opens right underneath (the one-liner and every line to say, with the customer's and partner's names filled in), so they can read it straight out and overcome the objection on the spot; for “Other”, the four-step method is shown instead. Reps can log several objections per call. Each one appears in the call note, so the team can see exactly what customers push back on and how it was handled.</li>
+  <li><b>New rebuttal: “Why do both of us need to be home?”</b> Added to the rebuttal list everywhere reps look one up (AI Drew, the Rebuttals button on every page, practice calls and the AI coaches). It explains that the decision affects the whole household, offers evenings or weekends if the partner works, and asks to confirm the day.</li>
+  <li><b>Setter or Confirmer script in AI Drew.</b> Reps pick “I'm calling as: Setter or Confirmer” before they start, and AI Drew shows only that role's script. Confirmers get the official Confirm Script as a step-by-step call with their own outcomes (Confirmed, Rescheduled, Cancelled, No answer, Call back) and a call note in the same standard format. Admins can set each person's usual script in People; reps can switch for the day when covering. The admin setting is live since 13 Oct (database updated).</li>
+</ul>
+
+<p class="log-date">12 October 2026 — v2.0</p>
+<ul>
+  <li><b>Disqualification reasons.</b> When a rep marks a customer Disqualified, they pick the reason from the same list used in Zoho (DNQ - Age, DNQ - Income, DNQ - Low bill, DNQ - Roof issues, DO NOT CONTACT, Duplicate, Lost to Competitor, Moving, Not Interested, Out of area - NSW/QLD/WA, Quote Shopping, Renter, SA - NO SALE ON DAY, Shading, Single Legger, Uncontactable). The reason goes into the call note. For “Out of area” the customer's location must be set, and the note records the area. Using a scripted exit line (e.g. over 70, low bill, renter) picks the matching reason automatically.</li>
+  <li><b>Field rep booking calendar in AI Drew.</b> At the appointment-setting stage, reps see a live calendar for the next 7 days (Monday to Saturday) with the 10am, 2pm, 4pm, 6pm and 8pm intervals, showing how many appointments each slot already holds (e.g. “2/4 booked”) and which field reps are free. A “By field rep” view shows each field rep's day. Reps book a field rep into a slot in one click; every rep sees it straight away, two people can never overbook the same slot, and the call notes fill in automatically (booked, day and time, field rep). WA slots show Perth time with the QLD and Manila times underneath. In the Admin Control Centre, a new <b>Field reps</b> tab manages territories (SEQ and WA to start; more can be added), how many appointments each interval can hold (3 to 5), field reps with their territory and weekly roster, and upcoming bookings. Five example field reps are included to show how it looks. Live since 12 Oct (database updated).</li>
+  <li><b>Roof Inspector inside AI Drew.</b> Reps no longer leave the call script to look at the roof: an “Inspect roof” button on the customer's address card slides the Satellite Roof Inspector out from the right, already searching the customer's address, with the satellite view, shading, rebate eligibility and talking points. Closing it returns the rep to the exact spot in the script, and the result is kept for the rest of the call. Module 3 works as before; panels can now also be dragged on touch screens.</li>
+  <li><b>Map button for the Roof Inspector.</b> A floating “Map” button now sits above “Rebuttals” on every page (or press M). Reps can minimise the roof panel to get back to the script, then bring the same roof back in one tap. The customer's roof stays loaded for the rest of the call and clears on “Next call”.</li>
+  <li><b>Service-area warning on the roof map.</b> When the Roof Inspector pulls up an address outside our usual service area, a warning appears above the map, e.g. “Highfields is in Toowoomba, outside our usual service area. Check with the team before you lock a time.” It uses the same rule as the address card, so both always agree.</li>
+  <li><b>Module access by role</b> (Admin Control Centre → Module access): super admins can switch any module or page off for a role (Representative, Trainer, Supervisor, Manager): AI Drew, the Roof Inspector, the training modules, the module library, QA &amp; coaching, live simulations, help &amp; guides and coaching records. A hidden module disappears from that role's menu and dashboard, and opening its link shows “Not available for your role”. Super admins always see everything, and every change is recorded in the audit log. Live since 12 Oct (database updated).</li>
+  <li><b>New setter call flow: Framework V3 adopted everywhere.</b> AI Drew, the Cold Calling module, the practice-call panel, the AI practice customers, the live AI coach, flyby coaching, QA scoring and the call notes now follow V3's seven phases and six qualifiers. The call notes and QA checklist match V3's CRM checklist (address confirmed, system age and origin, panel location, plans to sell, roof condition, energy provider, whether the bill is typical). Agreed changes to V3: the over-70 rule stays (V3 says “around 75”); the pension rebuttal says there <i>may</i> be options with no upfront cost and that our rep confirms eligibility, instead of promising “no out-of-pocket cost”; and “our guys are in your area” is only said when it's true. The $450 a quarter bill minimum still applies.</li>
+  <li><b>The setters' live-call tool is renamed “AI Drew”</b> (formerly the Sales Dojo tool; the platform keeps its name). The <b>Satellite Roof Inspector</b> now sits directly under AI Drew in the menu, so both live-call tools are together at the top. It still counts as Module 3 for training progress.</li>
+  <li><b>Customer name box</b> in the Sales Dojo: pasted from Zoho, used throughout the script and the notes.</li>
+  <li><b>Bill filled in from the lead notes</b> so reps can verbalise and confirm it; it stays editable, and the notes show its source (lead notes or Zoho).</li>
+  <li><b>Appointment calendar locked to Queensland time</b>, with the Manila time shown alongside for our Philippines-based reps.</li>
+  <li><b>Call disposition cards</b> in the notes column: <b>Do not call</b> (the customer asked never to be called again; the note tells the team to mark them Do Not Call in Zoho and take them off every call list), <b>Future contact</b> (not now, but open to a call later, with a date and time to try again) and <b>Disqualified</b> (the rep is prompted to record which answer failed), alongside Not interested, No answer and Call back. Every note now ends the call with a clear disposition.</li>
+</ul>
+
+<p class="log-date">9 October 2026 — v1.9</p>
+<ul>
+  <li><b>Script selection buttons renamed</b> to the team's own terms: <b>CC</b> (Call Centre), <b>Lead AX</b> and <b>D2D</b>, in the Sales Dojo, the Cold Calling module and the call notes.</li>
+  <li><b>Official Appointment Setter Scripts adopted, followed strictly.</b> The Call Centre, online form and door-to-door scripts replace the earlier call flow everywhere: the Sales Dojo, the Cold Calling module, the practice-call panel, the AI practice customers, the live AI coach, flyby coaching and QA scoring. The scripts' rules (stick to the script, don't over-explain, under 5 minutes, no prices, lock in a decent appointment with urgency) are built in. Agreed adjustments: the nearby-appointment line is only used when it's true (claiming one that isn't real is misleading under consumer law and leads to cancellations); a short “Before I lock that in” step confirms the qualifiers the scripts don't ask (owners present, staying put, roof, shading, working status/age), so the Qualified check, $450 minimum and over-70 rule keep working; and the lock-in and set-expectations steps stay. Pasted lead details only fill in names and facts; the script wording never changes.</li>
+</ul>
+
+<p class="log-date">9 October 2026 — v1.8</p>
+<ul>
+  <li><b>New qualifying rule: over 70 not eligible.</b> Applied across the LMS: the Sales Dojo records age as Under 65 / 65–70 / Over 70 and marks Over 70 as Not qualified (age is required for retired homeowners); a warm “Customer over 70” exit line was added; leads showing an age over 70 are flagged before the call; the AI practice customers, live coach, flyby and QA coaching all apply the rule; and the knowledge base explains it.</li>
+  <li><b>Pre-call text removed:</b> the “send a text before the first call” step has been taken out of the LMS (script, call notes, booking checklist, Calling module, nesting tasks and AI coaching rules). The booking confirmation text sent after locking in an appointment is unchanged.</li>
+  <li><b>Names everywhere in the script:</b> the customer's first name, their partner's name, the suburb and the rep's own first name now fill every line of the script once a lead is pasted (previously only lines the AI rewrote), and the customer's name heads the call notes.</li>
+  <li><b>“Call ended early?”:</b> one tap tags a call as Not interested, No answer or Call back (with a time). Not interested and No answer skip the qualification check entirely, and the note records the call as not assessed, ready to copy to Aircall.</li>
+  <li><b>One-press “Next call”:</b> after copying the notes to Aircall, reps press one button to clear every customer detail, answer and note and start the next call from step 1. If the notes haven't been copied yet, it asks first so nothing is lost.</li>
+  <li><b>Door-to-door rep name:</b> for door-to-door leads, reps paste the D2D rep's name from Zoho into step 1; it fills the opener (“Jake knocked on your door…”) and is added to the call notes. Reps pick He, She or They for the D2D rep with one tap so the opener refers to them correctly (until they pick, the opener uses the D2D rep's first name). The app deliberately does not guess gender from the name, so a colleague is never misgendered in front of a customer. Reps also record the door-to-door territory, which is added to the call notes. For every lead type, reps can also paste the bill already on file in Zoho (any format, e.g. “$900/quarter” or “300 mth”). The app reads it, shows the monthly and quarterly figures with the minimum check, puts the figure into the script (“The notes say your bill's sitting around $900 a quarter…”), offers it as the starting answer for the bill question (to confirm with the customer), and adds it to the call notes.</li>
+  <li><b>Qualification fix:</b> a customer is only marked Not qualified when an answer actually fails a qualifier (e.g. bill under 50 a quarter, decision-makers not both available). Until every qualifier is answered the call shows “Still qualifying” with the list still to confirm, and it shows Qualified once all six pass. The outcome no longer defaults to “Booked”.</li>
+  <li><b>Call notes reworked:</b> every answer is now recorded right inside the script box where the question is asked (tick, Yes/No or amount, plus notes). The notes column drafts the Aircall note live as the rep clicks and types, with “Tidy wording” (AI clean-up), “Copy for Aircall” at the top, and a free box for the rep to add anything else, which the AI also tidies. No scrolling or re-typing needed.</li>
+  <li><b>Sales Dojo: three-column layout, Yes/No answers, bill calculator.</b> Customer, script and notes side by side, with the notes following the script; Yes/No plus details for each qualifier; monthly/quarterly bill converted automatically; working status with pension and age recorded for retired homeowners.</li>
+  <li><b>Sales Dojo: standard call notes for Aircall/Zoho.</b> Setters tick and jot notes for each qualifying question during the call; the AI tidies their wording and the app produces a note in one fixed format to copy into Aircall. Missed qualifiers are marked “NOT ASKED” and the bill is checked against the minimum.</li>
+</ul>
+
+<p class="log-date">9 October 2026 — v1.7</p>
+<ul>
+  <li><b>Sales Dojo: customer address and “Where are you located?”.</b> Reps paste the customer's address; the app places them in our service area and gives a local, honest answer to the location brush-off, flagging customers outside our usual area.</li>
+</ul>
+
+<p class="log-date">9 October 2026 — v1.6</p>
+<ul>
+  <li><b>Sales Dojo: script tailored to each lead.</b> Reps paste vendor lead notes in any format; the AI personalises the whole call script, summarises the lead, flags which qualifiers the vendor has confirmed or missed, and lists watch-outs. Bill minimum enforced, no prices, nothing saved.</li>
+</ul>
+
+<p class="log-date">9 October 2026 — v1.5</p>
+<ul>
+  <li><b>Coaching tool: Setters and Confirmers.</b> Coaches choose the rep type before scoring. Setters are scored against the Setter Playbook, Confirmers against the official Confirm Script.</li>
+  <li><b>Qualification check on every coached call.</b> Each qualifying question is marked passed, failed or missed, with quotes from the call. Missed questions become script deviations, and the form shows whether the customer is Qualified, Not qualified or Not verified.</li>
+</ul>
+
+<p class="log-date">9 October 2026 — v1.4</p>
+<ul>
+  <li><b>Sales Dojo launched.</b> A new big-text page for reps to search every rebuttal and follow the full call step by step, from the rapport opener to setting expectations (text, confirmation email, questions to prepare for the consultant). Added to the top of the desktop menu and to the mobile tab bar (in place of Exam, which stays in the menu).</li>
+  <li><b>Rep feedback on scripts.</b> Reps can rate any rebuttal and suggest changes; admins review, track and export the feedback from the Admin Control Centre.</li>
+  <li><b>Drafts for approval.</b> The confirmation email, homeowner prep questions and educator lines are drafts, marked as such in the app.</li>
+</ul>
+
+<p class="log-date">8 October 2026 — v1.3</p>
+<ul>
+  <li><b>Setter Playbook applied across the LMS.</b> The official Solar Surge Setter Playbook replaces the old scripts, weekday pattern interrupts, bill bands and five overlapping rebuttal lists. Module 2 is now the playbook (call flow with inline rebuttals, quick-reference card, six-qualifier bill checker, lock-in and booking log). The bill minimum is now $450 a quarter or $150 a month everywhere, settling the $180 vs $250 question.</li>
+  <li><b>Rebuttals one tap away.</b> A Rebuttals button and the R key open the floor card on every page; the search finds the right script from the homeowner's own words.</li>
+  <li><b>Practice calls rebuilt.</b> All eight AI homeowners now match playbook objections, with lead source, vendor notes and a right result (book or disqualify). The practice panel pins the matching rebuttal, tracks the six qualifiers and shows the current call step.</li>
+  <li><b>AI coaches follow the playbook.</b> Live Script Assist, flyby coaching and QA scoring now coach Acknowledge → Reframe → Ask → Advance, check the six qualifiers, and flag any price quoted or “when suits you?”. The exam, mission brief, nesting tasks and knowledge base were updated to match, and the in-home consultant assessment replaces the old “10-minute satellite assessment” wording.</li>
+</ul>
+
+<p class="log-date">8 October 2026 — v1.2</p>
+<ul>
+  <li><b>Roof Inspector address search.</b> Now finds the exact property using the Queensland Government's official address database (previously it often found only the street, or nothing when a unit number was included). Handles unit formats, suggests addresses as the rep types, shows how accurate the map pin is, and zooms accordingly. Unit addresses are flagged to the AI as shared-roof properties for rebate eligibility. Near-miss matches on a different street (e.g. “Smiths Road” for “Smith Street”) are now rejected rather than shown as exact.</li>
+  <li><b>Faster Live Script Assist.</b> Suggestions were taking 18–94 seconds on Gemini. The assist now uses Anthropic Claude Sonnet, with Gemini as backup; in testing, suggestions now arrive in about 5 seconds. The Anthropic key is connected, which also switches on Claude as the backup for all other AI features.</li>
+  <li><b>Flyby Coaching in the Roleplay Cockpit.</b> Every practice call now ends with a quick AI coaching debrief scored on the AI QA Coach Framework, with a “Hear your coach” voice option. It replaces the separate ElevenLabs voice-agent box, which has been removed. Coaching is not saved.</li>
+  <li><b>Roof Inspector call guide.</b> Added probing questions to ask before pitching, rewrote “Say this on the call” as thought-leader insights so the homeowner walks away educated, and added suggested next steps that educate the homeowner even when no sale is made.</li>
+</ul>
+
+<p class="log-date">7 October 2026 — v1.1</p>
+<ul>
+  <li><b>Independent platform.</b> Moved off Lovable onto Solar Surge's own Supabase project (accounts, database, file storage). All brand images and the 10 Call Vault recordings are now stored in the app itself. Super-admin access set up for Emil Halili.</li>
+  <li><b>AI backup.</b> Google Gemini remains the main AI; Anthropic Claude added as an automatic backup (switches on once its key is added).</li>
+  <li><b>Voice.</b> Vapi dropped from the roadmap. ElevenLabs stays primary, with the built-in browser Australian voice as failover.</li>
+  <li><b>Live Script Assist restored.</b> “Say this next” suggestions from the live two-way transcript, with an on/off switch for reps.</li>
+  <li><b>Practice call fixes.</b> The AI customer is no longer cut off mid-sentence or picked up as the rep's speech; prices and units are read naturally (e.g. “350 dollars”).</li>
+  <li><b>Exam &amp; numbers.</b> Certification exam set to 4 questions; target booking ratio corrected to 0.016; certificate always shows the rep's name.</li>
+  <li><b>Bug fixes.</b> Admin content edits can no longer blank out training pages; Nesting progress no longer shows an error value; custom voice IDs display correctly; roof suburb shortcuts highlight when selected; Call Vault seek bar works on first play.</li>
+  <li><b>QA &amp; Coaching.</b> Built-in AI QA Coach Framework with human-sounding coaching notes; document uploads (campaign library and per call/form); “Rewrite coaching notes with AI”; agents without a login can be added by name.</li>
+  <li><b>Security.</b> API keys are kept on the server only and excluded from source files; all stored files are private.</li>
+</ul>
+
+<p class="log-date">v1.0 — original PRD</p>
+<ul><li>Original specification by Emil Halili (archived as <i>PRD/archive/PRD v1.0 (original).pdf</i>).</li></ul>
+
+<h2>6. Open Decisions &amp; Next Steps</h2>
+<table>
+  <tr><th style="width:32%">Item</th><th>Detail</th></tr>
+  <tr><td>“Over the street” close</td><td>The 14 Oct setter close says “We are seeing someone over the street at 2pm.” The app shows it word for word with a note to say it only when a consultant really is booked nearby. Confirm that's how the floor uses it (the same applies to “our experts are in the area”).</td></tr>
+  <tr><td>Year-of-birth brackets</td><td>The scripts give 2026's brackets and say to update them each January. The app works them out from the current year automatically; only the documents need updating each January.</td></tr>
+  <tr><td>Rebuttal library</td><td>The rebuttals (including the pension objection's “may be options with no upfront cost”) come from the 8 Oct playbook and V3. Confirm they still fit the 14 Oct scripts.</td></tr>
+  <tr><td>Script documents: the reason behind each question</td><td>The app now has reps ask each qualifying question straight and give the reason only if the customer asks. The written Setter and Confirm scripts still give the reason with every question. Update the documents to match, so training and the floor say the same thing.</td></tr>
+  <tr><td>Age rules</td><td>Confirm with compliance the business reason for not booking customers over 70 and flagging 65–70 for manager review (age discrimination law may apply unless there is a lawful basis such as finance eligibility; the script cites age-based lending criteria).</td></tr>
+  <tr><td>Sales Dojo drafts</td><td>Approve or edit the “Where are you located?” answer (please confirm our consultants are local right across South East Queensland). The confirmation email and prep-question drafts were removed with the 14 Oct scripts; say if you want them back.</td></tr>
+  <tr><td>Battery talking points</td><td>Approve the battery scripts with compliance. Program facts were checked on 13 Oct 2026 and must be re-checked every January and July, when the federal discount steps down. Confirm whether consultants offer battery backup (for the blackout question).</td></tr>
+  <tr><td>New hire course content</td><td>(1) Approve the 36 quick-check questions (marked Draft). (2) The knowledge base call scripts quote figures (“around 30% off”, “90%+ savings”, payback years, rebate dollar amounts), which the Setter Playbook bans on calls; the app tags them, but the files should be reworded. (3) Correct the files' service areas (Toowoomba, Dalby, NSW) and head office (Burleigh Heads) to SEQ + WA and Coomera. (4) The files give the 44c feed-in tariff end date as 1 July 2028; management to confirm (see below).</td></tr>
+  <tr><td>WA wording</td><td>Approve the WA version of the “Where are you located?” answer (“Head office is in Coomera, Queensland, and we've got consultants in Western Australia who do the in-home assessments”), and confirm our consultants are local across all of WA or only the Perth area.</td></tr>
+  <tr><td>Lead queue data</td><td>Lead details, phone numbers and call notes are now stored for leads loaded into the queue. Decide how long they are kept (e.g. archive and delete after 12 months), and confirm what the “GB” lead source is so it can be recognised automatically.</td></tr>
+  <tr><td>Confirmer script in AI Drew</td><td>Approve the one coaching note added to the Confirm Script in AI Drew (marked Draft): “If the time no longer works, reschedule; if they want to cancel, try the rebuttals first.” Confirm whether confirmers should also cancel the old field rep slot themselves when they reschedule (today the note tells the team to do it).</td></tr>
+  <tr><td>Call notes format</td><td>The standard note follows the Setter Playbook's booking log. Confirm it matches the fields the team wants in Zoho, or share the Zoho template so the format can be matched exactly. A direct Zoho/Aircall integration (no copy and paste) is a possible next step.</td></tr>
+  <tr><td>44c feed-in tariff end date</td><td>Management to confirm the current end date before any rep uses it as a reason to act (open item from the Setter Playbook).</td></tr>
+  <tr><td>How-to guide screenshots</td><td>The Module 2 and Module 4 screenshots in the How-To Guide show the old screens and need retaking.</td></tr>
+    <tr><td>Google sign-in</td><td>Not yet enabled on the new platform; users sign in with email and password.</td></tr>
+  <tr><td>Rotate keys and passwords</td><td>Keys and the database password used during the move should be replaced.</td></tr>
+  <tr><td>Training content file</td><td><i>Solar Surge_TRN.txt</i> to be added; its scripts, objections and exam questions will go into the modules word for word.</td></tr>
+  <tr><td>Still to build</td><td>Module 1 podcast player; Module 3 roof metrics HUD (kWh/day, STC rebate, bill offset).</td></tr>
+  <tr><td>Known issue</td><td>Re-saving a coaching form that was already sent notifies the rep a second time.</td></tr>
+</table>
+
+</body>
+</html>
